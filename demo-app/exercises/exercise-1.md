@@ -2,11 +2,11 @@
 
 1. Create two types: 
 
-- Student
+#### Student
  - firstName: string
  - lastName: string
 
-- Teacher
+#### Teacher
  - firstName: string
  - lastName: string
 
