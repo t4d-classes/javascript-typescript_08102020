@@ -1,58 +1,72 @@
-
-const nums = [1,2,3,4,5,6,7,8,9,10];
-
-// const doubleNums: number[] = [];
-
-// imperative - what and how
-// for (let i=0; i < nums.length; i++) {
-//   doubleNums.push(nums[i] * 2);
+// Old School Approach - Constructor Functions (ES5)
+// function PersonOld(firstName, lastName) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
 // }
 
-// more declarative way - what, what is unclear
-// for (const num of nums) {
-//   doubleNums.push(num * 2);
+// PersonOld.prototype.getFullName = function() {
+//   return this.firstName + ' ' + this.lastName;
 // }
 
+// const pOld = new PersonOld('Bob', 'Smith');
 
-// type NumberTransformFn = (num: number) => number;
+// New School Approach - Classes (ES6/2015)
+// class Person {
 
-// function myMap(transformFn: NumberTransformFn, items: number[]): number[] {
-
-//   const transformedItems: number[] = [];
-
-//   for (const item of items) {
-//     transformedItems.push(transformFn(item));
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
 //   }
 
-//   return transformedItems;
+//   getFullName() {
+//     return this.firstName + ' ' + this.lastName;
+//   }
+
 // }
 
-// const doubleNums = myMap( (num): number => num * 2, nums);
+// const p = new Person('Bob', 'Smith');
 
-// console.log(nums);
-// console.log(doubleNums);
-// console.log(myMap( (num): number => num * 4, nums ))
+// TypeScript School Approach  - Strongly-Typed Classes
+
+import { IPerson } from './models/IPerson';
+import { Student } from './models/Student';
+import { Teacher } from './models/Teacher';
+import { Person as NicePerson  } from './models/Person';
+
+const nicePerson = NicePerson.create('Bob Smith');
+console.log(nicePerson.fullName);
+
+type Person = {
+  firstName: string;
+  lastName: string;
+  getFullName: () => string;
+};
+
+const displayName = (person: IPerson): void => {
+  console.log(person.getFullName());
+};
+
+const q: Person = {
+  firstName: 'Timmy',
+  lastName: 'Smith',
+  getFullName(): string {
+    return this.firstName + ' - ' + this.lastName;
+  },
+};
+displayName(q);
+
+const r: IPerson = {
+  firstName: 'Timmy',
+  lastName: 'Smith',
+  getFullName(): string {
+    return this.firstName + ' - ' + this.lastName;
+  },
+};
+displayName(r);
 
 
-type MapTransformFn<TranformItemType> = (item: TranformItemType) => TranformItemType;
+const s = new Student('Bob', 'Smith', 4);
+displayName(s);
 
-function myMap<ItemType>(transformFn: MapTransformFn<ItemType>, items: ItemType[]): ItemType[] {
-
-  const transformedItems: ItemType[] = [];
-
-  for (const item of items) {
-    transformedItems.push(transformFn(item));
-  }
-
-  return transformedItems;
-}
-
-const doubleNums = myMap( (num): number => num * 2, nums );
-
-const appendMarks = myMap( (s): string => s + '!', ['a','b'] );
-
-
-console.log(doubleNums);
-
-console.log(appendMarks);
-
+const t: IPerson = new Teacher('Sally', 'Smith', 'Physics');
+displayName(t);
