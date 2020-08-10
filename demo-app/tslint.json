@@ -1,0 +1,8 @@
+{
+  "extends": [ "tslint:recommended" ],
+  "rules": {
+    "no-console": false,
+    "typedef": [true, "call-signature", "arrow-call-signature"],
+    "no-inferrable-types": true
+  } 
+}
