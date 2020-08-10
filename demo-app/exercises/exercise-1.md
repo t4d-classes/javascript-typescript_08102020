@@ -11,7 +11,7 @@
  - lastName: string
 
 
-2. Create an array of three elements for each type.
+2. Create an array of three elements for each type (a total of two arrays).
 
 3. Create a function similar to myMap named myForEach. When the myForEach function runs, it simplies runs the passed function for each item in the passed in array. Similar to the JavaScript example below.
 
