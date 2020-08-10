@@ -2,13 +2,13 @@
 
 1. Create two types: 
 
-Student
-  firstName: string
-  lastName: string
+- Student
+ - firstName: string
+ - lastName: string
 
-Teacher
-  firstName: string
-  lastName: string
+- Teacher
+ - firstName: string
+ - lastName: string
 
 
 2. Create an array of three elements for each type.
