@@ -7,6 +7,35 @@
 
   <body>
     <h1>Welcome!</h1>
-    <script src="../src/app.ts"></script>
+    <!-- <script src="../src/app.ts"></script> -->
+    <script src="scripts/app.js"></script>
+
+    <script>
+
+      function allDone() {
+        console.log('all done');
+      }
+      
+      setTimeout(() => {
+        console.log('a');
+      }, 1000);
+      
+      setTimeout(() => {
+        console.log('b');
+      }, 500);
+      
+      setTimeout(() => {
+        console.log('c');
+      }, 2000);
+
+      // Modify the above code to run the allDone function when all three setTimeout callbacks have been invoked
+
+      // Rules
+      // 1. All the calls to setTimeout must be made in the same task
+      // 2. The delay values cannot be changed (think of them as random)
+      // 3. You may not wrap the call to allDone inside of its own setTimeout with some super high delay value
+
+
+    </script>
   </body>
 </html>
