@@ -7,26 +7,43 @@
 
   <body>
     <h1>Welcome!</h1>
-    <!-- <script src="../src/app.ts"></script> -->
-    <script src="scripts/app.js"></script>
+    <script src="../src/app.ts"></script>
+    <!-- <script src="scripts/app.js"></script> -->
 
-    <script>
+    <!-- <script>
 
       function allDone() {
         console.log('all done');
       }
+
+      let counter = 0;
       
+      counter++;
       setTimeout(() => {
         console.log('a');
-      }, 1000);
+        counter--;
+        if (counter === 0) {
+          allDone();
+        }
+      }, 2300);
       
+      counter++;
       setTimeout(() => {
         console.log('b');
-      }, 500);
+        counter--;
+        if (counter === 0) {
+          allDone();
+        }
+      }, 1000);
       
+      counter++;
       setTimeout(() => {
         console.log('c');
-      }, 2000);
+        counter--;
+        if (counter === 0) {
+          allDone();
+        }
+      }, 200);
 
       // Modify the above code to run the allDone function when all three setTimeout callbacks have been invoked
 
@@ -34,8 +51,9 @@
       // 1. All the calls to setTimeout must be made in the same task
       // 2. The delay values cannot be changed (think of them as random)
       // 3. You may not wrap the call to allDone inside of its own setTimeout with some super high delay value
+      // 4. No promises
 
 
-    </script>
+    </script> -->
   </body>
 </html>
