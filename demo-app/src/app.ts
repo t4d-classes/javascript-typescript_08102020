@@ -1,20 +1,42 @@
 
 
-const xhr = new XMLHttpRequest();
+type Car = {
+  id: number,
+  make: string,
+  model: string,
+  year: number,
+  color: string,
+  price: number,
+};
 
-xhr.addEventListener('readystatechange', (): void => {
+const car: Readonly<Car> = {
+  id: 1,
+  make: 'F',
+  model: 'H',
+  year: 1,
+  color: 'r',
+  price: 1,
+};
 
-  if (xhr.status === 200 && xhr.readyState === 4) {
-    console.log(JSON.parse(xhr.responseText));
-  }
+// copy an object, set the new value of some
+// of the props - immutable operation
+const newCar: Readonly<Car> = {
+  ...car, // object spread operator
+  year: 2,
+};
 
-});
+console.log(newCar);
 
-xhr.open('GET', 'http://localhost:3060/cars');
-xhr.send();
+// object rest operator
+const { make, model, ...other } = car;
 
+console.log(make, model);
+console.log(other);
 
-// Write the code needed to implement the "myFetch" function described below. Your
-// implementation should include any types and generics which are necessary
+function doIt(...params: any[]): void {
 
-// myFetch('http://localhost:3060/cars').then((cars: Car[]): void => console.log(cars));
+  console.log(params);
+
+}
+
+doIt(...[1,2,3,4]);
